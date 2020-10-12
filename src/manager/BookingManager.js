@@ -113,7 +113,7 @@ class BookingManager {
             cab.lat = booking.end_lat;
             cab.lng = booking.end_long;
             await redisManager.storeData(booking.cabId,cab);
-            return price;
+            return {price:price};
         } catch (error) {
             let errorMessage = new Error(error.message);
                 errorMessage.code = (error.code) ? error.code : 400;
